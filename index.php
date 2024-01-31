@@ -18,7 +18,7 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
 
     
-	<!-- JQuery -->
+	<!-- datables -->
 	<link rel="stylesheet" type="text/css" href="datatables/datatables.css"/>
 	<script type="text/javascript" src="datatables/datatables.js"></script>
     <title>Jadwal Poli RS</title>
