@@ -1,0 +1,55 @@
+body {
+    background-color: #747264;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: #B0A695;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 600; /* Sesuaikan nilai font-weight sesuai keinginan */
+}
+
+table {
+    background-color: #B0A695;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #637A9F;
+    padding: 10px;
+    text-align: center;
+}
+
+thead tr:first-child th {
+    background-color: #3C3633;
+    color: white; /* Warna latar belakang untuk sel-sel di baris pertama (baris header) */
+}
+
+.btn-secondary {
+    background-color: #3C3633;
+    color: #747264;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+}
+h2{
+    text-align: center;
+}
