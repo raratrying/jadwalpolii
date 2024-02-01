@@ -7,16 +7,18 @@ $poli = '';
 $nama_dokter = '';
 $jam_kerja = '';
 
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $query = "SELECT * FROM jadwallpoli WHERE id = '$id';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
 
-
-    // var_dump($result);
-    // die();
+    $id = $row['id'];
+    $hari = $row['hari'];
+    $poli = $row['poli'];
+    $nama_dokter = $row['nama_dokter'];
+    $jam_kerja = $row['jam_kerja'];
 }
 ?>
 
@@ -42,15 +44,19 @@ if(isset($_GET['id'])){
     </nav>
     <div class="container">
         <form method="POST" action="proses.php">
-            <input type="hidden" value="<?php echo $datapoli; ?>" name="datapoli">
+            <!-- Menambahkan input hidden untuk menyimpan ID yang sedang diubah -->
+            <input type="hidden" name="id_asli" value="<?php echo $id; ?>">
+            
             <div class="mb-3 row">
                 <label for="id" class="col-sm-2 col-form-label">
                     ID :
                 </label>
                 <div class="col-sm-10">
-                    <input required type="text" class="form-control" id="id" name="id" value="<?php echo $id; ?>" > <br>
+                    <!-- Menambahkan input hidden untuk menampilkan ID yang tidak dapat diubah -->
+                    <input required type="text" class="form-control" id="id" name="id" value="<?php echo $id; ?>" readonly> <br>
                 </div>
             </div>
+            
             <div class="mb-3 row">
                 <label for="hari" class="col-sm-2 col-form-label">
                     Hari :
@@ -59,6 +65,7 @@ if(isset($_GET['id'])){
                     <input required type="text" class="form-control" id="hari" name="hari" value="<?php echo $hari; ?>" > <br>
                 </div>
             </div>
+
             <div class="mb-3 row">
                 <label for="poli" class="col-sm-2 col-form-label">
                     Poli :
@@ -78,12 +85,14 @@ if(isset($_GET['id'])){
                     </select><br>
                 </div>
             </div>
+
             <div class="mr-5 row">
                 <label for="nama_dokter" class="col-sm-2 col-form-label">Nama Dokter :</label>
                 <div class="col-sm-10">
                     <input required type="text" class="form-control" id="nama_dokter" name="nama_dokter" value="<?php echo $nama_dokter; ?>" > <br>
                 </div>
             </div>
+
             <div class="mb-10 row">
                 <label for="jam_kerja" class="col-sm-2 col-form-label">Jam Kerja :</label>
                 <div class="col-sm-10">
@@ -93,15 +102,9 @@ if(isset($_GET['id'])){
             
             <div class="mb-3 row mt-4">
                 <div class="col">
-                    <?php if(isset($_GET['ubah'])): ?>
-                        <button type="submit" name="aksi" value="edit" class="btn btn-primary">
-                            Simpan Perubahan 
-                        </button>
-                    <?php else: ?>      
-                        <button type="submit" name="aksi" value="add" class="btn btn-primary">
-                            Tambahkan
-                        </button>
-                    <?php endif; ?>
+                    <button type="submit" name="aksi" value="edit" class="btn btn-primary">
+                        Simpan Perubahan 
+                    </button>
                     <a href="index.php" type="button" class="btn btn-danger">
                         Batal
                     </a>

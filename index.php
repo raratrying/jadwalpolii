@@ -3,6 +3,7 @@ include 'koneksi.php';
 
 $query = "SELECT * FROM jadwallpoli";
 $result = mysqli_query($conn, $query);
+$no = 0;
 
 session_start();
 ?>
